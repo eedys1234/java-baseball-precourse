@@ -2,7 +2,6 @@ package baseball.game;
 
 import baseball.player.GamePlayer;
 import baseball.player.Player;
-import nextstep.utils.Console;
 
 public class Game {
 
@@ -19,17 +18,19 @@ public class Game {
         this.computer = secondPlayer;
     }
 
-    private boolean ready() {
+    private boolean start() {
         user.start();
         computer.start();
         return user.isRunning() && computer.isRunning();
     }
 
     public void run() {
-        if(!ready()) {
+        if(!start()) {
             throw new IllegalArgumentException("게임 준비가 되지 않았습니다.");
         }
         System.out.println("게임이 시작되었습니다.");
+
+
     }
 
     public void stop() {

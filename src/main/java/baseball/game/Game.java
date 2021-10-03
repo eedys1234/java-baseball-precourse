@@ -3,33 +3,26 @@ package baseball.game;
 import baseball.player.GamePlayer;
 import baseball.player.Player;
 
+/**
+ * Baseball 게임을 관리하는 클래스
+ */
 public class Game {
 
-    private final Player user;
-    private final Player computer;
+    private final Player userPlayer;
+    private final Player computerPlayer;
 
     public Game() {
-        user = new GamePlayer("user");
-        computer = new GamePlayer("computer");
+        this.userPlayer = new GamePlayer("user");
+        this.computerPlayer = new GamePlayer("computer");
     }
 
-    public Game(Player firstPlayer, Player secondPlayer) {
-        this.user = firstPlayer;
-        this.computer = secondPlayer;
+    public Game(Player userPlayer, Player computerPlayer) {
+        this.userPlayer = userPlayer;
+        this.computerPlayer = computerPlayer;
     }
 
-    private boolean start() {
-        user.start();
-        computer.start();
-        return user.isRunning() && computer.isRunning();
-    }
-
-    public void run() {
-        if(!start()) {
-            throw new IllegalArgumentException("게임 준비가 되지 않았습니다.");
-        }
+    public void play() {
         System.out.println("게임이 시작되었습니다.");
-
 
     }
 
@@ -37,7 +30,4 @@ public class Game {
 
     }
 
-    public void inningsDisplay() {
-
-    }
 }

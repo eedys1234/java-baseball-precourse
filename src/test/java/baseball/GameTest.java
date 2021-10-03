@@ -16,7 +16,7 @@ public class GameTest extends NSTest {
     @Test
     public void 게임시작_테스트() {
         Game game = new Game();
-        game.run();
+        game.play();
         verify("게임이 시작되었습니다.");
     }
 

@@ -1,30 +1,29 @@
 package baseball.player;
 
+import baseball.baseball.Baseball;
+
+import java.util.List;
+
 /**
- * BaseBall Game에 참가하는 사용자
+ * Baseball Game에 참가하는 사용자
  */
 public class GamePlayer implements Player {
 
     private final String playerName;
-    private boolean isRunning = false;
+    private List<Baseball> baseballs;
 
     public GamePlayer(String playerName) {
         this.playerName = playerName;
     }
-    
+
     @Override
-    public void start() {
-        if(isRunning) throw new IllegalStateException("이미 게임을 시작하였습니다.");
-        isRunning = true;
+    public void received(List<Baseball> baseballs) {
+        this.baseballs = baseballs;
     }
 
     @Override
-    public void stop() {
-        if(!isRunning) throw new IllegalStateException("이미 게임이 종료되었습니다.");
-        isRunning = false;
+    public List<Baseball> openBaseballs() {
+        return this.baseballs;
     }
 
-    public boolean isRunning() {
-        return isRunning;
-    }
 }

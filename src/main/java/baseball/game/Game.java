@@ -2,7 +2,10 @@ package baseball.game;
 
 import baseball.player.GamePlayer;
 import baseball.player.Player;
+import baseball.ui.Input;
 import baseball.ui.Output;
+
+import java.io.IOException;
 
 /**
  * Baseball 게임을 관리하는 클래스
@@ -24,6 +27,7 @@ public class Game {
 
     public void play() {
         Output.printBaseballGameStart();
+        String input = Input.receiveInputFromUser();
     }
 
 }

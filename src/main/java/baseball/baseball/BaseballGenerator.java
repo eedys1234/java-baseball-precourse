@@ -33,6 +33,9 @@ public class BaseballGenerator {
         return baseballs;
     }
 
+    /**
+     * baseball을 랜덤하게 발생시키는 함수
+     */
     public static List<Baseball> generateRandom() {
 
         Set<Baseball> baseballs = new HashSet<>();
@@ -44,10 +47,20 @@ public class BaseballGenerator {
         return new ArrayList<>(baseballs);
     }
 
+    /**
+     * 랜덤하게 숫자를 발생시키는 함수
+     * @return
+     */
     private static int getBaseballNumber() {
         return Randoms.pickNumberInRange(START_NUMBER, END_NUMBER);
     }
 
+    /**
+     * Baseball 객체 생성 함수
+     * @param number 값
+     * @param index 순서
+     * @return
+     */
     private static Baseball createBaseball(int number, int index) {
         return new Baseball(number, index);
     }

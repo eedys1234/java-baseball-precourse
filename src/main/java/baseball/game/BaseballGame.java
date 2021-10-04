@@ -8,6 +8,7 @@ import baseball.ui.Input;
 import baseball.ui.Output;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * Baseball 게임을 관리하는 클래스
@@ -39,8 +40,9 @@ public class BaseballGame {
 
     private List<Baseball> receiveUserBaseballs() {
         try {
-            return BaseballGenerator.generate(Input.receiveFromUser());
-        } catch (IllegalArgumentException e) {
+            return BaseballGenerator.generate(Input.receiveNumberFromUser());
+        }
+        catch (NoSuchElementException | IllegalStateException | IllegalArgumentException e) {
             Output.printInvalidInputException();
             return receiveUserBaseballs();
         }

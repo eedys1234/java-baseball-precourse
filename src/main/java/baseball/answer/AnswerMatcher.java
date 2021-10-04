@@ -4,6 +4,7 @@ import baseball.baseball.Baseball;
 import baseball.score.BallScore;
 import baseball.score.Score;
 import baseball.score.StrikeScore;
+import baseball.ui.Output;
 
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class AnswerMatcher {
 
     private void isValidateSize(List<Baseball> userBaseballs) {
         if(userBaseballs.size() != answer.getBaseballs().size()) {
-            throw new IllegalArgumentException("비교할 사이즈가 일치하지 않습니다.");
+            throw new IllegalArgumentException(Output.INVALID_BASEBALLS_SIZE_MESSAGE);
         }
     }
 

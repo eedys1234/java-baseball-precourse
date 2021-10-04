@@ -4,6 +4,7 @@ import baseball.game.Game;
 import nextstep.test.NSTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class GameTest extends NSTest {
@@ -13,6 +14,7 @@ public class GameTest extends NSTest {
         super.setUp();
     }
 
+    @DisplayName("게임시작 테스트")
     @Test
     public void 게임시작_테스트() {
         Game game = new Game();

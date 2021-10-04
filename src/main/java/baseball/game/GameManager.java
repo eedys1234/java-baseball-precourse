@@ -1,32 +1,41 @@
 package baseball.game;
 
 import baseball.ui.Input;
+import baseball.ui.Output;
 
-import java.util.NoSuchElementException;
-
+/**
+ * @author eedys1234
+ * @version 1.0
+ * @since 1.0
+ * 게임 재시작, 종료를 관리하는 클래스
+ */
 public class GameManager {
 
-    private BaseballGame baseballGame;
-
-    public GameManager() {
-        baseballGame = new BaseballGame();
-    }
-
+    /**
+     * Baseball 게임을 재시작할지 종료할지 관리하는 함수
+     */
     public void run() {
 
         do {
+            BaseballGame baseballGame = new BaseballGame();
             baseballGame.play();
-        } while(isRestartAndStopOpinion());
+        } while(isResumeOpinion());
     }
 
-    private boolean isRestartAndStopOpinion() {
+    /**
+     * 재시작, 종료 여부를 판별하는 함수
+     * @return
+     */
+    private boolean isResumeOpinion() {
 
         try {
-            RestartOrStop restartOrStop = new RestartOrStop(Input.receiveOpinionFromUser());
-            return restartOrStop.isGameRestartAndStop();
+            Output.printGameResume();
+            ResumeOpinion opinion = new ResumeOpinion(Input.receiveOpinionFromUser());
+            return opinion.isResume();
         }
-        catch (NoSuchElementException | IllegalArgumentException | IllegalStateException e) {
-            return isRestartAndStopOpinion();
+        catch (IllegalArgumentException e) {
+            Output.printInvalidInputException(e.getMessage());
+            return isResumeOpinion();
         }
     }
 

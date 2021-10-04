@@ -13,9 +13,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AnswerMatcherTest {
 
-    @DisplayName("CompterBaseball과 UserBaseball이 모두 동일한지 테스트")
+    @DisplayName("Computer의 Baseballs와 User의 Baseballs가 모두 동일한지 테스트")
     @Test
-    public void ComputerBaseball과_UserBaseball_모두_동일한지_테스트() {
+    public void Computer의_Baseballs와_User의_Baseballs가_모두_동일한지_테스트() {
 
         BaseballGenerator baseballGenerator = new BaseballGenerator();
         Answer answer = new Answer(baseballGenerator.generate("456"));
@@ -26,8 +26,5 @@ public class AnswerMatcherTest {
 
         assertThat(isCorrect).isTrue();
     }
-
-
-
 
 }

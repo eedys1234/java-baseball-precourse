@@ -1,5 +1,7 @@
 package baseball.baseball;
 
+import java.util.Objects;
+
 /**
  * Baseball 값을 담는 클래스
  */
@@ -37,5 +39,18 @@ public final class Baseball {
         if(baseballNumber < MIN_NUMBER || baseballNumber > MAX_NUMBER) {
             throw new IndexOutOfBoundsException("유효범위를 벗어났습니다.");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Baseball baseball = (Baseball) o;
+        return baseballNumber == baseball.baseballNumber;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(baseballNumber);
     }
 }

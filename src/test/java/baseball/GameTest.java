@@ -1,6 +1,6 @@
 package baseball;
 
-import baseball.game.Game;
+import baseball.game.BaseballGame;
 import nextstep.test.NSTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +17,7 @@ public class GameTest extends NSTest {
     @DisplayName("게임시작 테스트")
     @Test
     public void 게임시작_테스트() {
-        Game game = new Game();
+        BaseballGame game = new BaseballGame();
         game.play();
         verify("게임이 시작되었습니다.");
     }

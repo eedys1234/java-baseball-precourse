@@ -20,6 +20,28 @@ public class AnswerMatcher {
         this.answer = answer;
     }
 
+    public String getResult(List<Baseball> userBaseballs) {
+        StringBuilder result = new StringBuilder();
+        result.append(createStrikeString(countStrike(userBaseballs)));
+        result.append(createBallString(countBall(userBaseballs)));
+
+        if(result.toString().length() == 0) {
+            result.append(Output.NOTHING);
+        }
+
+        return result.toString();
+    }
+
+    private String createStrikeString(int strikeCount) {
+        if(strikeCount > 0) return String.format("%d%s ", strikeCount, Output.STRIKE);
+        return "";
+    }
+
+    private String createBallString(int ballCount) {
+        if(ballCount > 0) return String.format("%d%s", ballCount, Output.BALL);
+        return "";
+    }
+
     public boolean isCorrect(List<Baseball> userBaseBalls) {
         isValidateSize(userBaseBalls);
         return countStrike(userBaseBalls) == userBaseBalls.size();
@@ -37,12 +59,12 @@ public class AnswerMatcher {
         return count;
     }
 
-    public int countStrike(List<Baseball> userBaseballs) {
+    private int countStrike(List<Baseball> userBaseballs) {
         Score score = new StrikeScore();
         return count(userBaseballs, score);
     }
 
-    public int countBall(List<Baseball> userBaseballs) {
+    private int countBall(List<Baseball> userBaseballs) {
         Score score = new BallScore();
         return count(userBaseballs, score);
     }
